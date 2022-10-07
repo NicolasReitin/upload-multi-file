@@ -1,4 +1,4 @@
-
+{{-- home.blade.php = your page --}}
 <ul>
     @if (isset($support->filepath))
         @foreach (json_decode($support->filepath) as $item)

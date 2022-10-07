@@ -3,6 +3,13 @@
 
 if($request->hasfile('filename')) // if filename is specified
 {
+    $this->validate($request, [  //rules for validation
+
+        'filename' => 'required',
+        'filename.*' => 'mimes:doc,pdf,docx,zip'
+
+    ]);
+    
     foreach($request->file('filename') as $file) // foreach filename
     {
         $name = time() .'_'. $file->getClientOriginalName(); // name of the file
@@ -17,5 +24,5 @@ if($request->hasfile('filename')) // if filename is specified
 
                                 //next
 // dd($allparams); // for test 
-//Support::create($allParams); // Support mofify by Models target 
-//return redirect('mysupports'); //redirect to the page to modify by blade name
+Support::create($allParams); // Support mofify by Models target 
+return redirect('mysupports'); //redirect to the page to modify by blade name
