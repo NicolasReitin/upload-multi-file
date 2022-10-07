@@ -6,7 +6,7 @@ if($request->hasfile('filename')) // if filename is specified
     $this->validate($request, [  //rules for validation
 
         'filename' => 'required',
-        'filename.*' => 'mimes:doc,pdf,docx,zip'
+        'filename.*' => 'mimes:doc,pdf,docx,zip,pptx'
 
     ]);
     
